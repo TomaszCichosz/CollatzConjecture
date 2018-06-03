@@ -19,13 +19,11 @@ public class Main {  //http://pl.spoj.com/problems/PTCLTZ/
     }
 
     private static int collatz(int s, int n) {
-        while (!(s == 1)) {
+        while (s != 1) {
             if (s % 2 == 0) {
-                n++;
-                return collatz(s / 2, n);
+                return collatz(s / 2, ++n);
             } else {
-                n++;
-                return collatz(3 * s + 1, n);
+                return collatz(3 * s + 1, ++n);
             }
         }
         return n;
